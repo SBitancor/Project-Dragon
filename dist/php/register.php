@@ -3,18 +3,16 @@
 	
 	if (isset($_POST['signSubmit'])){
 		
-		$firstName 		= $_POST['fName'];
-		$lastName 		= $_POST['lName'];
-		$middleInitial	= $_POST['mName'];
-		$studentNumber 	= $_POST['studno'];
-		$yearLevel 		= $_POST['yrlvl'];
-		$dateOfBirth 	= $_POST['bday'];
-		$mobileNumber 	= $_POST['phone'];
-		$ueEmail 		= $_POST['email'];
-		$username 		= $_POST['user'];
-		$password 		= $_POST['pass'];
-		$passwordRepeat = $_POST['passrpt'];
-		$checkBox 		= $_POST['termsBox'];
+		$resID 			= $_POST['residentID'];
+		$birthDay 		= $_POST['bday'];
+		$lName			= $_POST['lastName'];
+		$fName 	 		= $_POST['firstName'];
+		$middleName 	= $_POST['midName'];
+		$barangayPos 	= $_POST['brgyPosition'];
+		$username 		= $_POST['userInput'];
+		$password 		= $_POST['inputPass'];
+		$passwordRepeat = $_POST['rptPass'];
+		
 		
 		if ($password == $passwordRepeat){//correct password; insertInput - values entered by the user
 			insertInput($firstName, $lastName, $middleInitial, $studentNumber, $yearLevel, 
@@ -50,8 +48,8 @@
 		}
 }//isset closing 
 	
-	function insertInput($firstName, $lastName, $middleInitial, $studentNumber, $yearLevel, 
-					$dateOfBirth, $mobileNumber, $ueEmail, $username, $password, $passwordRepeat){
+	function insertInput($resID, $birthDay, $lName, $fName, $middleName, 
+					$barangayPos, $username, $password, $passwordRepeat){
 	try {
 		
 		$con = config::connect();
