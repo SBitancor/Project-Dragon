@@ -5,11 +5,11 @@ $first_name = $_POST['firstName'];
 $mid_initial = $_POST['midName'];
 $ResidentID = $_POST['residentID'];
 $birthday = $_POST['bday'];
-$username = $_POST['userInput'];
-$password = $_POST['inputPass']; 
+$username = $_POST['usernameInput'];
+$password = $_POST['passInput']; 
 
 
-	if ($password == $password ) {
+	if ($password == $passwordRepeat ) {
 		insertRecord($last_name,$first_name,$mid_initial,$ResidentID,$birthday,$username,$password);
 	}
 
@@ -29,8 +29,12 @@ function insertRecord($last_name,$first_name,$mid_initial,$ResidentID,$birthday,
  try {
  require 'Dbase.php';
      
-  $sql = "INSERT INTO register (LastName, FirstName, MidName, ResidentID, Bday, Username, Pass) VALUES (?,?,?,?,?,?,?)";
-
+  $sql = "INSERT INTO dbase (lastName, firstName, middleInitial, ResidentID, Birthday, Mobile, Email, Username, Password) VALUES (?,?,?,?,?,?,?,?,?,?)";
+  echo '<script>
+				alert ("ERROR: Email/Username already used");
+				</script>';
+     
+     
   // use exec() because no results are returned 
      $conn->prepare($sql)->execute([$last_name,$first_name,$mid_initial,$ResidentID,$birthday,$username,$password]);
 
