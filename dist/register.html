@@ -9,6 +9,7 @@
         <title>Page Title - SB Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="js/vali.js"></script>
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -30,6 +31,7 @@
                                                         name="residentID"
                                                         type="text"
                                                         placeholder="Enter Resident ID" />
+                                                        <small>error message</small>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -115,7 +117,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-4 mb-0"><button id = "signSubmit" name = "signSubmit"class="btn btn-primary btn-block" href="login.html">Create Account</button></div>
+                                            <div class="form-group mt-4 mb-0"><button id = "signSubmit" name = "signSubmit"class="btn btn-primary btn-block" href="login.html" onclick="return myFunction()">Create Account</button></div>
                                         </form>
                                     </div>
                                 </div>
