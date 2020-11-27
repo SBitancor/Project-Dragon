@@ -44,28 +44,28 @@
                         <div class="nav">
 							<img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/University_of_the_East_Logo.svg/1200px-University_of_the_East_Logo.svg.png" class="img-fluid" alt="Barangay Logo">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="dashboard.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-							<a class="nav-link" href="tables.html">
+							<a class="nav-link" href="resident-information.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                 Resident Information
                             </a>
-							<a class="nav-link" href="charts.html">
+							<a class="nav-link" href="certificate-issuance.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-certificate"></i></div>
                                 Certificate Issuance
                             </a>
-							<a class="nav-link" href="charts.html">
+							<a class="nav-link" href="brgy-config.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-cog"></i></div>
                                 Barangay Config
                             </a>
 							<div class="sb-sidenav-menu-heading">Super Admin</div>
-							<a class="nav-link" href="charts.html">
+							<a class="nav-link" href="logs.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
                                 Logs
                             </a>
-							<a class="nav-link" href="register.html">
+							<a class="nav-link" href="register-admin.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-plus"></i></div>
                                 Register Admin
                             </a>
@@ -114,6 +114,43 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
+											<tr>
+                                                <td>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewResidents"><i class="fas fa-eye"></i></button>
+													<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addResidents"><i class="fas fa-pen"></i></button>
+													<button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+												</td>
+                                                <td>0000001</td>
+                                                <td>Samuel</td>
+                                                <td>Bitancor</td>
+                                                <td>Male</td>
+                                                <td>20000609</td>
+                                            </tr>
+											<tr>
+                                                <td>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewResidents"><i class="fas fa-eye"></i></button>
+													<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addResidents"><i class="fas fa-pen"></i></button>
+													<button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+												</td>
+                                                <td>0000002</td>
+                                                <td>Kevin Jeiel</td>
+                                                <td>Gigante</td>
+                                                <td>Male</td>
+                                                <td>20000910</td>
+                                            </tr>
+											<tr>
+                                                <td>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewResidents"><i class="fas fa-eye"></i></button>
+													<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addResidents"><i class="fas fa-pen"></i></button>
+													<button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+												</td>
+                                                <td>0000003</td>
+                                                <td>John Larie</td>
+                                                <td>Legamia</td>
+                                                <td>Lesbian</td>
+                                                <td>20000910</td>
+                                            </tr>
+										<!--
                                             <tr>
                                                 <td>Tiger Nixon</td>
                                                 <td>System Architect</td>
@@ -570,6 +607,7 @@
                                                 <td>2011/01/25</td>
                                                 <td>$112,000</td>
                                             </tr>
+											-->
                                         </tbody>
                                     </table>
                                 </div>
@@ -714,7 +752,7 @@
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 										<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#viewResidents">
-											Save
+											Save and View
 										</button>
 									</div>
 								</div>
@@ -723,31 +761,139 @@
 						
 						<!-- Modal -->
 						<div class="modal" id="viewResidents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
 								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+									<div class="modal-header text-center">
+										<h5 class="modal-title w-100" id="exampleModalCenteredLabel">New Resident Registration Form</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
+										<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
 									<div class="modal-body">
-										...
+										<form>
+											<div class="row">
+												<div class="col-4">
+													<img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/University_of_the_East_Logo.svg/1200px-University_of_the_East_Logo.svg.png" class="img-fluid" alt="Barangay Logo">
+													<hr>
+												</div>
+												<div class="col-8">
+													<div class="text-center">
+														<h6 w-100>Personal Information</h6>
+													</div>
+												
+													<div class="row">
+														<div class="col-6">
+															<div class="form-group">
+																<label class="small mb-1" for="lastName">Last Name</label>
+																<input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+															</div>
+														</div>
+														<div class="col-6">
+															<div class="form-group">
+																<label class="small mb-1" for="birthDate">Birth Date</label>
+																<input type="date" class="form-control" id="birthDate" placeholder="Enter Birth Date">
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-6">
+															<div class="form-group">
+																<label class="small mb-1" for="firstName">First Name</label>
+																<input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+															</div>
+														</div>
+														<div class="col-6">
+															<div class="form-group">
+															<label class="small mb-1">Civil Status</label>
+																<select class="custom-select">
+																	<option value="1">Single</option>
+																	<option value="2">Married</option>
+																	<option value="3">Widowed</option>
+																	<option value="4">Annulled</option>
+																	<option value="5">Divorced</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-6">
+															<div class="form-group">
+																<label class="small mb-1" for="middleName">Middle Name</label>
+																<input type="text" class="form-control" id="middleName" placeholder="Enter Middle Name">
+															</div>
+														</div>
+														<div class="col-6">
+															<div class="form-group">
+															<label class="small mb-1">Gender</label>
+																<select class="custom-select">
+																	<option value="1">Male</option>
+																	<option value="2">Female</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-6">
+															<div class="form-group">
+																<label class="small mb-1" for="alias">Alias</label>
+																<input type="text" class="form-control" id="alias" placeholder="Enter Alias">
+															</div>
+														</div>
+														<div class="col-6">
+															<div class="form-group">
+															<label class="small mb-1">Voter Status</label>
+																<select class="custom-select">
+																	<option value="1">Voter</option>
+																	<option value="2">Non-voter</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-4">
+													<div class="form-group">
+														<label class="small mb-1" for="phoneNumber">Phone Number</label>
+														<input type="text" class="form-control" id="phoneNumber" placeholder="Enter Phone Number">
+													</div>
+												</div>
+												<div class="col-8">
+													<div class="form-group">
+														<label class="small mb-1" for="emailAddress">Email Address</label>
+														<input type="text" class="form-control" id="emailAddress" placeholder="Enter Email Address">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-4">
+													<div class="form-group">
+														<label class="small mb-1">Purok</label>
+															<select class="custom-select">
+																<option value="1">None</option>
+																<option value="2">1</option>
+																<option value="3">2</option>
+																<option value="4">3</option>
+																<option value="5">4</option>
+																<option value="6">5</option>
+															</select>
+													</div>
+												</div>
+												<div class="col-8">
+													<div class="form-group">
+														<label class="small mb-1" for="birthPlace">Birth Place</label>
+														<input type="text" class="form-control" id="birthPlace" placeholder="Enter Birth Place">
+													</div>
+												</div>
+											</div>
+										</form>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						
-						
-						
-						
-						
-						
-						
                     </div>
                 </main>
             </div>
