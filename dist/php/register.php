@@ -37,6 +37,7 @@ function insertRecord($last_name,$first_name,$mid_initial,$ResidentID,$birthday,
   echo '<script>
   				alert("Congratulations, you are now registered!");
 					</script>';
+					
 } catch(PDOException $e) {
   echo $sql . "<br>" . $e->getMessage();
 }
