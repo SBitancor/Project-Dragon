@@ -7,8 +7,9 @@ function loginVali(){
 	$('[data-toggle="tooltip"]').tooltip(); 
 	*/
 	
-	
+	document.getElementById("invalid-tooltip").style.display = "block";
+	//document.getElementById("invalid-tooltip").style.visibility = "visible";
 	
 	alert('line2');
-	return true;
+	return false;
 }
