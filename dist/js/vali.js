@@ -1,15 +1,25 @@
 function myFunction(){
+    var letters = /^[A-Za-z]*$/;
+    var lettersSpace = /^[A-Za-z\s]*$/;
+    var numbers = /^[0-9]+$/;
+    var letterNumber = /^[0-9a-zA-Z]+$/;
+    var mailformat = /^[a-z0-9.]+[@ue.edu.ph]*$/;
+    var unameformat = /^[a-zA-Z-_]*$/;
+    var mnlen = 1;
+    var mxlen = 2;
+    var alphaNum = /^(?:[0-9]+[a-z]|[a-z]+[0-9])[a-z0-9]*$/i;
+    
 	var rID = document.getElementById('residentID').value;
-	
+	document.getElementById("invalid1").style.display = "block";
+    document.getElementById("invalid2").style.display = "block";
+
     alert('line4');
 
 	if (rID.length !=10) {
-		setErrorFor(residentID,'What the fuck is going on');
-    	alert('Error: Resident ID. Must be 10 digits');
-    	return false;
+		return false;
     }
     else{
-        setSuccessFor(residentID);
+        
     
 }
 }
