@@ -1,24 +1,23 @@
 <?php
-	require "NewBase.php";
-		if(isset($_POST['login'])){
-			$usernmame = $_POST['user'];
-			$password = $_POST['pass'];
-			
+	require "Dbase.php";
+		if(isset($_POST['loginbtn'])){
+			$username = $_POST['inputUsername'];
+			$password = $_POST['inputPassword'];
 			$con = config::connect();
 			$query = "SELECT * FROM register WHERE Username = :username AND Pass = :password";
-			$statement = $con -> prepare($query);
-			$statement -> execute(
+			$statement = $con->prepare($query);
+			$statement->execute(
 				array(
-				'username' => $_POST['user'],
-				'password' => $_POST['pass']
+				'username' => $_POST['inputUsername'],
+				'password' => $_POST['inputPassword']
 				)
 		);
 
-		$count = $statement -> rowCount();
+		$count = $statement->rowCount();
 
 		if ($count > 0){
-		header('location:dashboard.html');
-	} 
+		header('location: ../dashboard.html');
+		} 
 	
 		else {
 		echo '<script>
