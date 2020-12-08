@@ -2310,11 +2310,9 @@ textarea.form-control {
 
 .invalid-tooltip {
 	position: absolute;
-	top: 0%;
-	right: 1%;
 	display: none;
   z-index: 5;
-  max-width: 100%;
+  max-width: 91%;
   padding: 0.25rem 0.5rem;
   margin-top: 0.1rem;
   font-size: 0.875rem;
