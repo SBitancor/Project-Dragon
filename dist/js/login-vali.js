@@ -10,6 +10,12 @@ function setSuccessFor(input, tooltip){
 	document.getElementById(tooltip).style.display = "none";
 }
 
+function validateAll(){
+    if (main){
+        document.form.submit();
+    }
+}
+
 function main(){
 	var usernameValue = document.getElementById("inputUsername").value;
     var passwordValue = document.getElementById("inputPassword").value;
@@ -29,7 +35,5 @@ function main(){
     } else {
 		setSuccessFor("inputPassword", "password-tooltip");
     }
-	
-	
 	
 }
