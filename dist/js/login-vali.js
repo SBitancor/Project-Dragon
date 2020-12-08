@@ -1,16 +1,33 @@
-function loginVali(){
-	/*
-	var formControl = input.parentElement;
-    var small = formControl.querySelector('small');
-	formControl.className = 'form-control error';
+function setErrorFor(input, tooltip, message){
+	document.getElementById(input).className = "form-control py-4 is-invalid";
+	var fieldNameElement = document.getElementById(tooltip);
+	fieldNameElement.innerHTML = message;
+	document.getElementById(tooltip).style.display = "block";
+}
+
+function setSuccessFor(input, tooltip){
+    document.getElementById(input).className = "form-control py-4 is-valid";
+	document.getElementById(tooltip).style.display = "none";
+}
+
+function main(){
+	var usernameValue = document.getElementById("inputUsername").value;
+    var passwordValue = document.getElementById("inputPassword").value;
 	
-	$('[data-toggle="tooltip"]').tooltip(); 
-	*/
+	//Username
+    if (usernameValue == ""){
+		setErrorFor("inputUsername", 'username-tooltip', 'Username cannot be blank');
+        return false;
+    } else {
+		setSuccessFor("inputUsername", "username-tooltip");
+    }
 	
-	document.getElementById("invalid-tooltip").style.display = "block";
-	//document.getElementsByClassName("invalid-tooltip").style.display = "block";
-	//document.getElementById("invalid-tooltip").style.visibility = "visible";
+	//Password
+	if (passwordValue == ""){
+		setErrorFor("inputPassword", 'password-tooltip', 'Password cannot be blank');
+        return false;
+    } else {
+		setSuccessFor("inputPassword", "password-tooltip");
+    }
 	
-	//alert('line2');
-	return false;
 }
