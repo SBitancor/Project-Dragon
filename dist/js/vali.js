@@ -12,6 +12,8 @@ function myFunction(){
 	var rID = document.getElementById('residentID').value;
 	document.getElementById("invalid1").style.display = "block";
     document.getElementById("invalid2").style.display = "block";
+    document.getElementById("invalid3").style.display = "block";
+    document.getElementById("invalid4").style.display = "block";
 
     alert('line4');
 
