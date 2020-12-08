@@ -10,6 +10,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -646,12 +647,18 @@
 															<div class="form-group">
 																<label class="small mb-1" for="lastName">Last Name</label>
 																<input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+																<div class="invalid-tooltip" id="lastName-tooltip">
+																	Error message
+																</div>
 															</div>
 														</div>
 														<div class="col-6">
 															<div class="form-group">
 																<label class="small mb-1" for="birthDate">Birth Date</label>
 																<input type="date" class="form-control" id="birthDate" placeholder="Enter Birth Date">
+																<div class="invalid-tooltip" id="birthDate-tooltip">
+																	Error message
+																</div>
 															</div>
 														</div>
 													</div>
@@ -660,36 +667,50 @@
 															<div class="form-group">
 																<label class="small mb-1" for="firstName">First Name</label>
 																<input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+																<div class="invalid-tooltip" id="firstName-tooltip">
+																	Error message
+																</div>
 															</div>
 														</div>
 														<div class="col-6">
 															<div class="form-group">
 															<label class="small mb-1">Civil Status</label>
-																<select class="custom-select">
-																	<option value="1">Select Civil Status</option>
-																	<option value="1">Single</option>
-																	<option value="2">Married</option>
-																	<option value="3">Widowed</option>
-																	<option value="4">Annulled</option>
-																	<option value="5">Divorced</option>
+																<select class="custom-select" id="civilStatus">
+																	<option value="0">Select Civil Status</option>
+																	<option value="single">Single</option>
+																	<option value="married">Married</option>
+																	<option value="widowed">Widowed</option>
+																	<option value="anulled">Annulled</option>
+																	<option value="divorced">Divorced</option>
 																</select>
+																<div class="invalid-tooltip" id="civilStatus-tooltip">
+																	Please select civil status
+																</div>
 															</div>
+															
 														</div>
 													</div>
 													<div class="row">
 														<div class="col-6">
 															<div class="form-group">
 																<label class="small mb-1" for="middleName">Middle Name</label>
-																<input type="text" class="form-control" id="middleName" placeholder="Enter Middle Name">
+																<input type="text" class="form-control" id="middleName" placeholder="Enter Middle Name (Optional)">
+																<div class="invalid-tooltip" id="middleName-tooltip">
+																	Please select gender
+																</div>
 															</div>
 														</div>
 														<div class="col-6">
 															<div class="form-group">
 															<label class="small mb-1">Gender</label>
-																<select class="custom-select">
-																	<option value="1">Male</option>
-																	<option value="2">Female</option>
+																<select class="custom-select" id="gender">
+																	<option value="0">Select Gender</option>
+																	<option value="male">Male</option>
+																	<option value="female">Female</option>
 																</select>
+																<div class="invalid-tooltip" id="gender-tooltip">
+																	Please select gender
+																</div>
 															</div>
 														</div>
 													</div>
@@ -698,15 +719,22 @@
 															<div class="form-group">
 																<label class="small mb-1" for="alias">Alias</label>
 																<input type="text" class="form-control" id="alias" placeholder="Enter Alias">
+																<div class="invalid-tooltip" id="alias-tooltip">
+																	Error message
+																</div>
 															</div>
 														</div>
 														<div class="col-6">
 															<div class="form-group">
 															<label class="small mb-1">Voter Status</label>
-																<select class="custom-select">
+																<select class="custom-select" id="voterStatus">
+																	<option value="0">Select Voter Status</option>
 																	<option value="1">Voter</option>
 																	<option value="2">Non-voter</option>
 																</select>
+																<div class="invalid-tooltip" id="voterStatus-tooltip">
+																	Please select voter status
+																</div>
 															</div>
 														</div>
 													</div>
@@ -715,14 +743,20 @@
 											<div class="row">
 												<div class="col-4">
 													<div class="form-group">
-														<label class="small mb-1" for="phoneNumber">Phone Number</label>
-														<input type="text" class="form-control" id="phoneNumber" placeholder="Enter Phone Number">
+														<label class="small mb-1" for="phoneNumber">Mobile Number</label>
+														<input type="text" class="form-control" id="mobileNumber" placeholder="Enter Mobile Number">
+														<div class="invalid-tooltip" id="mobileNumber-tooltip">
+															Error Message
+														</div>
 													</div>
 												</div>
 												<div class="col-8">
 													<div class="form-group">
 														<label class="small mb-1" for="emailAddress">Email Address</label>
 														<input type="text" class="form-control" id="emailAddress" placeholder="Enter Email Address">
+														<div class="invalid-tooltip" id="emailAddress-tooltip">
+															Error Message
+														</div>
 													</div>
 												</div>
 											</div>
@@ -730,21 +764,27 @@
 												<div class="col-4">
 													<div class="form-group">
 														<label class="small mb-1">Purok</label>
-															<select class="custom-select">
+															<select class="custom-select" id="purok">
 																<option value="0">Select Purok</option>
-																<option value="1">None</option>
-																<option value="2">1</option>
-																<option value="3">2</option>
-																<option value="4">3</option>
-																<option value="5">4</option>
-																<option value="6">5</option>
+																<option value="None">None</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
 															</select>
+															<div class="invalid-tooltip" id="purok-tooltip">
+																Please select Purok
+															</div>
 													</div>
 												</div>
 												<div class="col-8">
 													<div class="form-group">
 														<label class="small mb-1" for="birthPlace">Birth Place</label>
 														<input type="text" class="form-control" id="birthPlace" placeholder="Enter Birth Place">
+														<div class="invalid-tooltip" id="birthPlace-tooltip">
+															Error Message
+														</div>
 													</div>
 												</div>
 											</div>
@@ -752,7 +792,7 @@
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#viewResidents">
+										<button type="button" class="btn btn-primary" data-target="#viewResidents" onclick="return main()">
 											Save and View
 										</button>
 									</div>
@@ -807,11 +847,11 @@
 															<div class="form-group">
 															<label class="small mb-1">Civil Status</label>
 																<select class="custom-select">
-																	<option value="1">Single</option>
-																	<option value="2">Married</option>
-																	<option value="3">Widowed</option>
-																	<option value="4">Annulled</option>
-																	<option value="5">Divorced</option>
+																	<option value="single">Single</option>
+																	<option value="married">Married</option>
+																	<option value="widowed">Widowed</option>
+																	<option value="annulled">Annulled</option>
+																	<option value="divorced">Divorced</option>
 																</select>
 															</div>
 														</div>
@@ -902,6 +942,7 @@
                 </main>
             </div>
         </div>
+		<script src="js/resident-vali.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
