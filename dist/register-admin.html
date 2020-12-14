@@ -9,7 +9,7 @@
         <title>Page Title - SB Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="js/vali.js"></script>
+        <script src="js/admin-vali.js"></script>
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -21,7 +21,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Admin Account</h3></div>
                                     <div class="card-body">
-                                        <form id = "registerForm" class = "userinput" action = "php/generate.php" method = "POST">
+                                        <form id = "registerForm" class = "userinput" action = "php/register.php" method = "POST">
 											<div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -30,9 +30,10 @@
                                                         id="residentID"
                                                         name="residentID"
                                                         type="text"
-                                                       
-                                                        placeholder="Enter Resident ID" readonly/>
-                                                    
+                                                        placeholder="Enter Resident ID"/>
+														<div class="invalid-tooltip" id="residentID-tooltip">
+															Error message
+														</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -42,7 +43,7 @@
                                                         id="bday" 
                                                         name="bday" 
                                                         type="text" 
-                                                        placeholder="Enter Birthday" />
+                                                        placeholder="Enter Birthday" readonly/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -54,7 +55,7 @@
                                                         id="lastName" 
                                                         name="lastName" 
                                                         type="text" 
-                                                        placeholder="Enter Last Name" />
+                                                        placeholder="Enter Last Name" readonly/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -64,7 +65,7 @@
                                                         id="firstName" 
                                                         name="firstName" 
                                                         type="text" 
-                                                        placeholder="Enter First Name" />
+                                                        placeholder="Enter First Name" readonly/>
                                                     </div>
                                                 </div>
 												<div class="col-md-4">
@@ -74,51 +75,65 @@
                                                         id="midName" 
                                                         name="midName" 
                                                         type="text" 
-                                                        placeholder="Enter Middle Name" />
+                                                        placeholder="Enter Middle Name" readonly/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="brgyPosition">Position</label>
-                                                        <input class="form-control py-4" 
-                                                        id="brgyPosition" 
-                                                        name="brgyPosition" 
-                                                        type="text" 
-                                                        placeholder="Enter Position" />
+                                                        <label class="small mb-1">Position</label>
+																<select class="form-control" id="position">
+																	<option value="0">Select Position</option>
+																	<option value="brgyCaptain">Barangay Captain</option>
+																	<option value="kagawad">Kagawad</option>
+																	<option value="sKChairman">SK Chairman</option>
+																	<option value="secretary">Secretary</option>
+																</select>
+																<div class="invalid-tooltip" id="position-tooltip">
+																	Please select position
+																</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="userInput">Username</label>
+                                                        <label class="small mb-1" for="username">Username</label>
                                                         <input class="form-control py-4" 
-                                                        id="userInput" 
-                                                        name="userInput" 
+                                                        id="username" 
+                                                        name="username" 
                                                         type="text" 
                                                         placeholder="Enter Username" />
+														<div class="invalid-tooltip" id="username-tooltip">
+															Error message
+														</div>
                                                     </div>
                                                 </div>
                                             </div>
 											<div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputPass">Password</label>
+                                                        <label class="small mb-1" for="password">Password</label>
                                                         <input class="form-control py-4" 
-                                                        id="inputPass" 
-                                                        name="inputPass" 
-                                                        type="text" 
+                                                        id="password" 
+                                                        name="password" 
+                                                        type="password" 
                                                         placeholder="Enter Password" />
+														<div class="invalid-tooltip" id="password-tooltip">
+															Error message
+														</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="rptPass">Confirm Password</label>
-                                                        <input class="form-control py-4" id="rptPass" type="text" placeholder="Re-enter Password" />
+                                                        <label class="small mb-1" for="repeatPassword">Confirm Password</label>
+                                                        <input class="form-control py-4" id="repeatPassword" type="password" placeholder="Re-enter Password" />
+														<div class="invalid-tooltip" id="repeatPassword-tooltip">
+															Error message
+														</div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-4 mb-0"><button id = "signSubmit" name = "signSubmit"class="btn btn-primary btn-block" href="login.html" onclick="return myFunction()">Create Account</button></div>
+                                            <div class="form-group mt-4 mb-0"><button id = "signSubmit" name = "signSubmit"class="btn btn-primary btn-block" onclick="return main()">Create Account</button></div>
                                         </form>
                                     </div>
                                 </div>
