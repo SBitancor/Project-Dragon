@@ -28,6 +28,8 @@ else
     $empid = intval($empid);
     $empid = "Citizen" . ($empid + 1);
 }
+//SAM PULL MO NA
+//SAM PULL MO NA
 
 
 ?>
