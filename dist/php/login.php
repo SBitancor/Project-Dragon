@@ -1,6 +1,6 @@
 <?php
 	require "Dbase.php";
-		if(isset($_POST['loginbtn'])){
+		if (isset($_POST['loginbtn'])){
 			$username = $_POST['inputUsername'];
 			$password = $_POST['inputPassword'];
 			$con = config::connect();
